@@ -1,4 +1,9 @@
+const express = require('express');
+const app = express();
 const winston = require('winston');
+
+const port = 5000;
+
 
 const logger = winston.createLogger({
     transports: [
@@ -8,3 +13,7 @@ const logger = winston.createLogger({
 });
 
 logger.info("Hello, Winston logger, some info!");
+
+app.listen(port, () => {
+    console.log(`Backend listening at http://localhost:${port}`)
+})
