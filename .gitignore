@@ -1,7 +1,10 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+# backend has separate package-lock and separate node_modules that need to be filtered out
 /src/backend/node_modules
+# backend log files should not be committed
+/src/backend/logs
 /node_modules
 /.pnp
 .pnp.js
