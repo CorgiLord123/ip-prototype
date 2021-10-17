@@ -3,7 +3,7 @@ const app = express();
 const winston = require('winston');
 const DeviceDetector = require('node-device-detector');
 
-const port = 3000;
+const port = 5000;
 
 const detector = new DeviceDetector;
 
@@ -17,19 +17,11 @@ const logger = winston.createLogger({
 
 logger.info("Logger activated");
 
-/*
-var http = require('http');
-var server = http.createServer(function(req) {
-    logger.info(detector.detect(req.headers['user-agent']));
-    });
-    
-server.listen(3000, 'localhost');
-*/
 // HTTP POST REQUEST; POST METADATA FROM FRONTEND TO BACKEND; PROCESS AND LOG TO FILE
 app.post('/data', function (req, res) {
   try {
 
-    const data = detector.detect(req.headers['user-agent']);
+    const data = req.body;
  
     logger.info(data);
     res.sendStatus(200);
