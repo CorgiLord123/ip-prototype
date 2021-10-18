@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import DeviceDetector from "device-detector-js";
 import {
     BrowserRouter as Router,
