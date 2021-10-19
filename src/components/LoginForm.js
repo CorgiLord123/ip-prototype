@@ -43,19 +43,19 @@ function LoginForm() {
                         <Form.Group as={Row} className="mb-3"> 
                             <Form.Label column sm={3}>Name: </Form.Label>
                             <Col sm={9}>
-                                <Form.Control type="text" name="name" id="name" onChange={e => setDetails({...details, name: e.target.value})} value={details.name}/>
+                                <Form.Control required type="text" name="name" id="name" onChange={e => setDetails({...details, name: e.target.value})} value={details.name}/>
                             </Col>
                         </Form.Group>
                         <Form.Group as={Row} className="mb-3"> 
                             <Form.Label column sm={3}>Email: </Form.Label>
                             <Col sm={9}>
-                                <Form.Control type="email" name="email" id="email"onChange={e => setDetails({...details, email: e.target.value})} value={details.email}/>
+                                <Form.Control required type="email" name="email" id="email"onChange={e => setDetails({...details, email: e.target.value})} value={details.email}/>
                             </Col>
                         </Form.Group>
                         <Form.Group as={Row} className="mb-3"> 
                             <Form.Label column sm={3}>Password: </Form.Label>
                             <Col sm={9}>
-                                <Form.Control type="password" name="password" id="password"onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
+                                <Form.Control required  type="password" name="password" id="password"onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
                             </Col>
                         </Form.Group>
 

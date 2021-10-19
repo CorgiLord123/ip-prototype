@@ -3,6 +3,8 @@
 # dependencies
 # backend has separate package-lock and separate node_modules that need to be filtered out
 /src/backend/node_modules
+# config file contains the local IP of the express backend, you can change the template, but it is ignored so our changes do not all get committed each time
+/src/config.json
 # backend log files should not be committed
 /src/backend/logs
 /node_modules
