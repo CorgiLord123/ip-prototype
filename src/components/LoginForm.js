@@ -1,13 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Col, Row, Card, Form, Button } from 'react-bootstrap';
+import DeviceDetector from "device-detector-js";
+import axios from 'axios';
+
+const deviceInfo = () => {
+    const deviceDetector = new DeviceDetector();
+    return deviceDetector.parse(navigator.appVersion);
+};
  
- function LoginForm( {Login, error} ) {
+function LoginForm( {Login, error} ) {
 
     const [details, setDetails] = useState({name: "", email: "", password: ""});
 
+
     const submitHandler = e => {
         e.preventDefault();
-        Login(details);
+
+        const metadata = deviceInfo();
+        
+        console.log(metadata);
+
+        const data = {
+        }
+
+        axios.post('http://localhost:5000/data', data)
+            .then(response => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+
+        //Login(details);
     }
 
      return (

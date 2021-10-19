@@ -5,7 +5,7 @@ import {
   } from "react-router-dom";
 import { Container } from 'react-bootstrap'
 import './App.css';
-import LoginForm from './components/LoginForm'
+import LoginForm from './components/LoginForm';
 
 const deviceInfo = () => {
     const deviceDetector = new DeviceDetector();
