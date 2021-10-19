@@ -38,7 +38,7 @@ function LoginForm() {
     return (
         <Form onSubmit={submitHandler}>
                 <Card>
-                    <Card.Header><img src={logo} style={{  
+                    <Card.Header as="h1"><img src={logo} alt="UTS Logo" style={{  
                         'width': "30%",
                         'height': "30%"
                         }}/><br />Login</Card.Header>
