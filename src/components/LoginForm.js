@@ -9,10 +9,9 @@ const deviceInfo = () => {
     return deviceDetector.parse(navigator.appVersion);
 };
  
-function LoginForm( {Login, error} ) {
+function LoginForm() {
 
     const [details, setDetails] = useState({name: "", email: "", password: ""});
-
 
     const submitHandler = e => {
         e.preventDefault();
@@ -21,6 +20,7 @@ function LoginForm( {Login, error} ) {
         
         console.log(metadata);
         console.log(details);
+
         axios.post('http://localhost:5000/data', details)
             .then(response => {
                 console.log(response);
@@ -29,10 +29,9 @@ function LoginForm( {Login, error} ) {
                 console.log(error);
             })
 
-        //Login(details);
     }
 
-     return (
+    return (
         <Form onSubmit={submitHandler}>
                 <Card>
                     <Card.Header><img src={logo} style={{  
@@ -40,7 +39,6 @@ function LoginForm( {Login, error} ) {
                         'height': "30%"
                         }}/><br />Login</Card.Header>
                     <Card.Body>
-                        {/* ERROR! */}
                         <Form.Group as={Row} className="mb-3"> 
                             <Form.Label column sm={3}>Name: </Form.Label>
                             <Col sm={9}>
@@ -64,7 +62,7 @@ function LoginForm( {Login, error} ) {
                     </Card.Body>
                 </Card>
         </Form>
-     )
+    )
  }
  
  export default LoginForm
