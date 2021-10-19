@@ -4,6 +4,7 @@ import DeviceDetector from "device-detector-js";
 import axios from 'axios';
 import config from '../config.json';
 import logo from './Icons/utspng.png';
+import { useHistory } from "react-router-dom";
 
 const deviceInfo = () => {
     const deviceDetector = new DeviceDetector();
@@ -11,11 +12,13 @@ const deviceInfo = () => {
 };
  
 function LoginForm() {
+    let history = useHistory();
 
     const [details, setDetails] = useState({name: "", email: "", password: ""});
 
     const submitHandler = e => {
         e.preventDefault();
+        history.push('LandingPage');
 
         const metadata = deviceInfo();
         
@@ -35,7 +38,7 @@ function LoginForm() {
     return (
         <Form onSubmit={submitHandler}>
                 <Card>
-                    <Card.Header><img src={logo} alt="" style={{  
+                    <Card.Header><img src={logo} style={{  
                         'width': "30%",
                         'height': "30%"
                         }}/><br />Login</Card.Header>
