@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Col, Row, Card, Form, Button } from 'react-bootstrap';
 import DeviceDetector from "device-detector-js";
 import axios from 'axios';
+import config from '../config.json';
 
 const deviceInfo = () => {
     const deviceDetector = new DeviceDetector();
@@ -23,7 +24,7 @@ function LoginForm( {Login, error} ) {
         const data = {
         }
 
-        axios.post('http://localhost:5000/data', data)
+        axios.post(config.adr + '/data', data)
             .then(response => {
                 console.log(response);
             })
