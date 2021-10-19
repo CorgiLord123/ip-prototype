@@ -6,6 +6,7 @@ import {
 import { Container } from 'react-bootstrap'
 import './App.css';
 import LoginForm from './components/LoginForm';
+import LandingPage from './components/LandingPage';
 
 const deviceInfo = () => {
     const deviceDetector = new DeviceDetector();
@@ -20,6 +21,7 @@ function App() {
                 <main>
                     <Container>
                         <Route exact path="/" component={LoginForm} />
+                        <Route path="/LandingPage" component={LandingPage} />
                     </Container>
                 </main>
             </Router>
