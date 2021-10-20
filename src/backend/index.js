@@ -1,9 +1,18 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const winston = require('winston');
+const DeviceDetector = require('node-device-detector');
+const bodyParser = require('body-parser');
 
 const port = 5000;
 
+const detector = new DeviceDetector;
+
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.raw());
 
 const logger = winston.createLogger({
     format: winston.format.json({ replacer: null, space: 2 }), // format newlines in log
@@ -16,16 +25,21 @@ const logger = winston.createLogger({
 logger.info("Logger activated");
 
 // HTTP POST REQUEST; POST METADATA FROM FRONTEND TO BACKEND; PROCESS AND LOG TO FILE
-app.post('/data', function (req, res) {
+app.post('/data', async function (req, res) {
+
   try {
-    const data = req.body;
- 
-    logger.info(data);
+
+    logger.info(detector.detect(req.headers['user-agent']));
+    logger.info(req.body);
     res.sendStatus(200);
   } catch {
     res.sendStatus(500);
   }
 });
+
+//app.get('/', function (req, res) {
+//    res.send('GET request to the homepage')
+// })
 
 app.listen(port, () => {
   console.log(`Backend listening at http://localhost:${port}`)
