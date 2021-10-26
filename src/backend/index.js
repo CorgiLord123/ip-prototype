@@ -9,7 +9,12 @@ const port = 5000;
 
 const detector = new DeviceDetector;
 
-app.use(cors());
+var corsOptions = {
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200
+}
+
+app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.raw());
