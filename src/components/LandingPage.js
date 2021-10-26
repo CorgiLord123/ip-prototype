@@ -5,7 +5,7 @@ import logo from './Icons/utspng.png';
 
 const deviceInfo = () => {
     const deviceDetector = new DeviceDetector();
-    return deviceDetector.parse(window.navigator.userAgent);
+    return deviceDetector.parse(navigator.userAgent);
 };
 
 function LandingPage( ) {
