@@ -10,7 +10,7 @@ const port = 5000;
 const detector = new DeviceDetector;
 
 var corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: true,
   optionsSuccessStatus: 200
 }
 
