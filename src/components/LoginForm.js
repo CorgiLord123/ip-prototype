@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 
 const deviceInfo = () => {
     const deviceDetector = new DeviceDetector();
-    return deviceDetector.parse(navigator.appVersion);
+    return deviceDetector.parse(navigator.userAgent);
 };
  
 function LoginForm() {

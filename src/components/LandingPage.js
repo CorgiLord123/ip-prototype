@@ -8,7 +8,7 @@ var clientInfo;
 
 const deviceInfo = () => {
     const deviceDetector = new DeviceDetector();
-    return deviceDetector.parse(window.navigator.userAgent);
+    return deviceDetector.parse(navigator.userAgent);
 };
 
 if (deviceInfo().client == null) {
