@@ -16,8 +16,8 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 //app.use(bodyParser.urlencoded({ extended: true }));
-//app.use(bodyParser.json());
-//app.use(bodyParser.raw());
+app.use(express.json());
+app.use(express.raw());
 
 const logger = winston.createLogger({
     format: winston.format.json({ replacer: null, space: 2 }), // format newlines in log
