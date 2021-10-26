@@ -3,13 +3,14 @@ import { Card, Table, } from 'react-bootstrap';
 import DeviceDetector from "device-detector-js";
 import logo from './Icons/utspng.png';
 
-const deviceInfo = () => {
-    const deviceDetector = new DeviceDetector();
-    return deviceDetector.parse(navigator.appVersion);
-};
- 
 var browser;
 var clientInfo;
+
+const deviceInfo = () => {
+    const deviceDetector = new DeviceDetector();
+    return deviceDetector.parse(window.navigator.userAgent);
+};
+
 if (deviceInfo().client == null) {
     browser = "a browser"
     clientInfo = "Browser is unsupported by our apps device fingerprinter"
