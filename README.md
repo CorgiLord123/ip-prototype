@@ -1,3 +1,39 @@
+# ip-prototype
+
+Prototype for the rogue access point webapp, completed as part of the UTS 31261 Internetworking Project. This was a group capstone project that involved both application and systems development, as well as networking and cybersecurity testing.
+
+## Setup
+
+The webapp consists of two parts, the React frontend and the express backend. Both components are nested in their folders, and have their own package lock file and node modules.
+
+### Installing Node Dependencies
+
+Hence, in order to install the necessary npm libraries for both components, the user must first run `npm install` in the project root directory.
+
+After all packages have been installed successfully, navigate to the `/src/backend` directory, and run `npm install` again to install the packages necessary for the backend.
+
+### Configuring Backend Address
+
+If the prototype is to be accessed from beyond the host device (e.g. from another device in the local network), a `config.json` file must be created in the `/src` directory to specify the address of the backend for the frontend to connect to. 
+
+The easiest way to do this is copy the provided `example-config.json` file in the `/src` directory into a new file by doing `cp example-config.json config.json`
+
+The user can then modify `config.json` to point the IP address towards the local IP that the webapp is being hosted on. Only the IP url should be changed. The `http://` tag as well as the port number `:5000` should not be modified.
+
+## Running
+
+### Firewalls
+
+The development build react frontend will listen on port `3000` by default, and the express backend will listen on port `5000` by default. The firewall must be configured to allow incoming traffic on both of these ports in order for traffic to flow unimpeded to and from the components.
+
+### Starting the Webapp
+
+To start the frontend, run `npm start` in the project root directory.
+
+To start the backend, run `node index.js` in the `/src/backend` directory.
+
+After both components have been deployed without issues, the webapp will be accessible via http://localhost:3000
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -69,5 +105,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-# ip-prototype
-Prototype for the webapp
